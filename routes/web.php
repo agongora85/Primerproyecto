@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+
+Route::get('/hello',HomeController::class);
+Route::get('post/mensaje',[PostController::class, 'Mensaje']);
+Route::get('post/about/{param?}/{name?}',[PostController::class, 'About']);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+/*
+Route::get('/hello', function () {
+    return 'Hello, World!';
+});
+*/
+
+Route::get('/principal',function(){
+    return 'Bienvenido a la página principal';
+});
+
+Route::get('/about/{param?}',function($p=null){
+    if(($p==null)||(empty($p))){
+        return "No se ingresó ningún parámetro";
+    }
+    return "El parámetro ingresado es: {$p}";
+});
