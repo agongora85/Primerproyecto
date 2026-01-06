@@ -1,4 +1,4 @@
-@props(['type'])
+@props(['type'=>'Info'])
 @php
     switch($type) {
         case 'Info':
@@ -25,6 +25,7 @@
 <div {{$attributes->merge(['class'=>'p-4 text-sm rounded-lg'.$class])}} role="alert">
     <span class="font-medium">{{$title}}</span> {{$slot}}
     <!--
+        Podemos imprimir los atributos que se le pasan y mediante la función merge unimos
     <p>
         {{$attributes}}
     </p>
