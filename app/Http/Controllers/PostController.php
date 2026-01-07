@@ -15,4 +15,8 @@ class PostController extends Controller
         return view('about',$datos);
         //return view('about',compact('param','nombre'));
     }
+
+    public function Contacto(){
+        return view('contacto');
+    }
 }
