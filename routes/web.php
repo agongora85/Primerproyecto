@@ -3,21 +3,27 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PrincipalController;
 
 Route::get('/hello',HomeController::class);
 Route::get('post/mensaje',[PostController::class, 'Mensaje']);
 Route::get('post/about/{param?}/{name?}',[PostController::class, 'About']);
 Route::get('post/contacto',[PostController::class, 'Contacto']);
+Route::get('/Principal',[PrincipalController::class,'index']);
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-/*
-Route::get('/hello', function () {
-    return 'Hello, World!';
-});
-*/
+
+Route::get('/hello/{d}', function ($d=null) {
+    return "Hello, World! {$d}";
+})->where('d','[0-9]+');
+
+
+Route::get('/hello/{x}', function ($x=null) {
+    return "Hello, World! {$x}";
+})->where('x','\w+');
 
 Route::get('/principal',function(){
     return 'Bienvenido a la página principal';
