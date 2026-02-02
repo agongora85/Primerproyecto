@@ -1,7 +1,9 @@
-@props(['type'=>'Info'])
+@props(['type'=>'Info']) <!-- Si en dado caso no le pasamos el valor de $type el valor por defecto sería Info -->
+<!-- Todo lo que se encuentre dentro de la siguiente directiva se va a trabajar con código en php -->
 @php
     switch($type) {
         case 'Info':
+            //Concatenamos el valor de variable validando que el contenido sea igual al case que se esta leyendo en esos momentos.
             $title = $title ?? 'Info alert!';
             $class="text-blue-800 bg-blue-50 dark:text-blue-300";
             break;
@@ -26,8 +28,9 @@
     <span class="font-medium">{{$title}}</span> {{$slot}}
     <!--
         Podemos imprimir los atributos que se le pasan y mediante la función merge unimos
+    -->
     <p>
         {{$attributes}}
+        {{$type}}
     </p>
-    -->
 </div>

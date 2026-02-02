@@ -12,7 +12,8 @@ class Alert2 extends Component
      * Create a new component instance.
      */
     public $class;
-    public function __construct($type='info')
+    public $title;
+    public function __construct($type='info',$title=null)
     {
         // Recibimos el parámetro y devolvemos la clase correspondiente
          switch($type) {
@@ -31,7 +32,8 @@ class Alert2 extends Component
             default:
                 $class="text-blue-800 bg-blue-50 dark:text-blue-300";
         }
-        $this->class=$class;    
+        $this->class=$class;  
+        $this->title=$title;  
     }
 
     /**

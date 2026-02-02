@@ -17,6 +17,14 @@ class PostController extends Controller
     }
 
     public function Contacto(){
-        return view('contacto');
+        return view('contacto',['mensaje'=>"Esto es un mensaje"]);
+    }
+
+    public function llamado_componente(){
+        return view('llamadocomponente');
+    }
+
+    public function principal(){
+        return view('principal');
     }
 }
